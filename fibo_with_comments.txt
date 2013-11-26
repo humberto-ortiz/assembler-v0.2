@@ -1,0 +1,36 @@
+ #Compute 10 elements of fibonacci sequence
+ # Copyright 2011, 2013 - Humberto Ortiz-Zuazaga <humberto.ortiz@upr.edu>
+# Released under the GNU General Public Licence v3 or later
+# See http://www.gnu.org/licenses/gpl.html
+ 
+# Uses the 16-bit assembly we made up for our less broken cpu.
+# http://www.hpcf.upr.edu/~humberto/courses/arch2013/less-broken-cpu.html
+ 
+	add $1, $0, $0 # $1 is base
+	add $2, $0, $0 
+	addi $2, 9     # $2 is end
+	add $3, $0 ,$0 # $3 is offset
+	addi $3, -2
+ 
+	add $4, $0, $0 # $4 is a
+	addi $4, 1
+	sw $4, $1, $0
+	
+	addi $1, 1
+	sw $4, $1, $0
+ 
+loop:	
+	addi $1, 1
+	lw $4, $1, $3
+ 
+	addi $3, 1
+	lw $5, $1, $3
+ 
+	add $6, $4, $5
+	sw $6, $1, $0
+ 
+	addi $3, -1
+ 
+	add $7, $1, $0
+	addi $7, -9
+	bnz $7, -9

@@ -1,0 +1,17 @@
+add $1, $0, $0
+addi $1, 10         
+loop:
+	add $2, $0,$0
+	bnz $4, loop      
+	addi $2 , 1
+	addi $1,5
+	bnz $2 ,loop
+lw $5 $1, $2
+j loop
+sw $2 $3, $4
+jr $6
+add $1, $0 ,$0
+addi $1, -2
+bnz $2, loop
+bz $5, loop
+jr $3 
