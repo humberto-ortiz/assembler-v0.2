@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #################################################################################
 # Author: Jhensen Grullon Sanabria						
 # Program: Assembler								
@@ -5,13 +6,19 @@
 #		   to machine language represented in hexadecimal.					
 #################################################################################
 
-
-#!/usr/bin/python
 from assembler import *
+import os
 
-out = open("logisim_input.txt",'w') # file to save the instructions in hex. 
 filename=chkCMLArgs() #first, we validate the user input.
 f = open(filename)
+
+# remove the input file path and extension
+outfile = os.path.splitext(os.path.basename(filename))[0]
+# append .bin
+outfile += ".bin"
+
+out = open(outfile,'w') # file to save the instructions in hex. 
+
 
 #we get a list of the code without lines, comments, and the '$' symbol. 
 file_lines = getParsedCode(f.readlines())
@@ -20,6 +27,9 @@ f.close()
 op = imm = rd = "" # this variales will hold the structure of an instruction(op code, register and immediate bits)
 
 cnt = -1 # used to know the current line. 
+
+# output logisim header
+out.write("v2.0 raw\n")
 
 # now we go through the code.
 for line in file_lines:
@@ -79,3 +89,5 @@ for line in file_lines:
 	#**END OF FOR LOOP**
 
 out.close() # we close the file.
+
+print("The translated logisim bin file is in the file '%s'" % outfile)

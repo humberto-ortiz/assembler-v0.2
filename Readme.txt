@@ -16,7 +16,10 @@
 2) How to use:											
 	A) Open the command line on a UNIX system.						
 	B) Find the directory where you have the program.					
-	C) Type python <program_name.py> <file_with_assembly.txt>									
+	C) Type 
+                python translate.py <file_with_assembly.txt>
+           The translated program will display to standard out, and is
+	   saved in the file 'file_with_assembly.bin'.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,8 +56,8 @@
 
 Here is an example code fibo for:
 
- #Compute 10 elements of fibonacci sequence
- # Copyright 2011, 2013 - Humberto Ortiz-Zuazaga <humberto.ortiz@upr.edu>
+# Compute 10 elements of fibonacci sequence
+# Copyright 2011, 2013 - Humberto Ortiz-Zuazaga <humberto.ortiz@upr.edu>
 # Released under the GNU General Public Licence v3 or later
 # See http://www.gnu.org/licenses/gpl.html
  
@@ -91,8 +94,9 @@ loop:
 	bnz $7, -9
 
 
-Output for Logisimi:
+Output for Logisim:
 
+v2.0 raw
 0100
 0200
 8209
